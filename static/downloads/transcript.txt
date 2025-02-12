@@ -1,0 +1,456 @@
+don't  sleep  on  a  boort 
+ controller  this  is  going  to  be  a  fun  one 
+ I  will  admit  I  have  slept  on  a  boort 
+ controller  for  far  too  long  I  really 
+ shouldn't  have  especially  for  react  devs 
+ uh  if  you're  a  react  Dev  you've  used  to 
+ use  effect  which  means  you  almost 
+ certainly  should  also  be  using  a  board 
+ controller  if  you're  a  JS  Dev  this  will 
+ benefit  you  but  if  you're  a  react  Dev 
+ this  is  almost  an  essential  watch  trust 
+ me  you  want  to  stick  this  one  through  to 
+ the  end  there's  so  many  cool  little 
+ things  I  didn't  even  know  when  I  was 
+ originally  filming  this  video  that  I 
+ hope  will  benefit  you  as  well  do  you 
+ know  what  else  I  hope  will  benefit  you 
+ today's  sponsor  today's  sponsor  is 
+ someone  I'm  actually  really  excited  to 
+ talk  about  because  it's  a  product  that 
+ makes  this  channel  possible  it's  a  bit 
+ different  from  what  you  might  expect  but 
+ hear  me  out  because  notion  has  changed 
+ my  life  I  don't  just  use  it  as  a  random 
+ note-taking  tool  I  use  it  to  run  my 
+ channel  because  the  database  product  is 
+ actually  incredible  in  here  I  have  a 
+ canb  band  Board  of  all  the  different 
+ things  that  I  cover  all  the  topics  I'm 
+ planning  on  filming  here's  all  the  ones 
+ I  just  finished  filming  for  today's 
+ stream  and  when  I  go  to  the  main  view 
+ this  is  my  calendar  for  What  videos  come 
+ out  when  all  in  one  place  with  clear 
+ tags  of  who  does  what  and  an  insane 
+ level  of  customization  for  whatever  my 
+ team  needs  to  see  or  do  and  it's  not 
+ like  oh  it's  just  a  table  with  five 
+ views  you  can  build  relations  between 
+ different  boards  and  different  things  as 
+ well  so  if  we  go  in  here  I  can  see  who 
+ sponsored  what  video  and  I  can  see  we 
+ currently  plan  for  the  abort  controller 
+ video  to  be  the  one  that  has  notion 
+ sponsoring  and  I  can  click  there  and  it 
+ will  bring  me  over  to  the  notion  side 
+ where  I  can  see  and  hear  all  of  the  info 
+ that  we've  logged  about  working  with 
+ notion  it's  so  convenient  I  don't  know 
+ how  I  would  do  my  job  without  it  if  you 
+ haven't  looked  at  Notions  database 
+ product  youve  not  actually  used  notion 
+ yet  the  only  tool  that  I  rely  on  more 
+ than  notion  is  OBS  everything  else  I 
+ could  replace  these  guys  have  made  my 
+ life  so  much  easier  I  highly  recommend 
+ checking  it  out  if  you  haven't  thank  you 
+ notion  for  sponsoring  today's  video 
+ check  them  out  today  at  soy.  l/  notion 
+ today  I'd  like  to  talk  about  one  of  the 
+ standard  JS  API  that  you're  likely 
+ sleeping  on  it's  called  abort  controller 
+ abort  controller  is  a  global  class  in  JS 
+ that  you  can  use  to  abort  well  anything 
+ even  after  the  election  are  we  sure 
+ about  that  that  might  be  illegal  in  some 
+ states  you  use  it  very  simply  cost 
+ controller  equals  new  abort  controller 
+ controller.  signal  controller.  abort 
+ once  you  create  a  controller  instance 
+ you  get  two  things  the  signal  property 
+ which  is  an  instance  of  aort  signal  this 
+ is  a  pluggable  part  that  you  can  provide 
+ to  any  API  to  react  to  an  abort  event 
+ and  implement  it  accordingly  for  example 
+ providing  it  to  a  fetch  EST  will  abort 
+ the  request  all  of  chat  catching  my  joke 
+ there  bro  took  a  second  time  out  this 
+ guy  sorry  I  had  to  I  it  was  too  good  I  I 
+ had  to  do  one  anyways  the  other  thing 
+ you  get  from  the  controller  instance  is 
+ the  abort  method  which  will  trigger  the 
+ abort  event  on  the  signal  it  updates  the 
+ signal  to  be  marked  as  aborted  so  far  so 
+ good  where's  the  actual  abort  logic 
+ that's  the  beauty  it's  defined  by  the 
+ consumer  the  abort  handling  comes  down 
+ to  listening  to  the  abort  event  and 
+ implementing  the  abort  in  whichever  way 
+ is  suitable  for  the  logic  in  question  so 
+ to  be  clear  you  can  build  your  own  abort 
+ controller  logic  but  what  we  care  about 
+ isn't  when  you  build  it  yourself  we  care 
+ about  is  how  useful  it  is  in  already 
+ existing  JS  apis  and  then  maybe  you  can 
+ go  build  it  for  yourself  too  so  how  do 
+ we  actually  use  it  with  those  the  most 
+ common  use  case  and  the  one  I  should 
+ probably  use  it  much  more  often  for  are 
+ event  listeners  you  can  provide  an  abort 
+ signal  when  adding  an  event  listener  for 
+ it  to  be  automatically  removed  once  the 
+ abort  happens  how  many  times  have  you 
+ all  written  this  code  let  me  show  what 
+ I'm  referring  to  here  quick  I'm  sure 
+ we've  all  had  to  write  code  pretty  much 
+ exactly  like  this  before  I  know  I  have 
+ far  too  many  times  you  might  not  have 
+ noticed  something  here  though  I  actually 
+ intentionally  left  a  typo  a  typo  that 
+ I've  made  far  too  many  times  resize  has 
+ change  storage  resize  hash  change  resize 
+ oh  I  removed  the  wrong  event  listener 
+ here  very  easy  to  make  this  type  of 
+ mistake  because  when  you  define  things 
+ twice  you  now  have  double  the  surface 
+ area  to  make  a  mistake  but  when  you  do 
+ this  with  an  abort  controller  as  long  as 
+ you  pass  the  signal  to  all  of  these  you 
+ don't  have  to  redefine  all  of  the  event 
+ listeners  to  remove  them  here  you  can 
+ just  do  it  here  and  what's  even  cooler 
+ is  you  don't  have  to  keep  track  of  these 
+ function  bindings  like  if  I  didn't  write 
+ resize  here  as  an  existing  function 
+ instead  I  inlined  one  how  do  I  unlist  to 
+ that  because  this  function  doesn't  exist 
+ I  have  to  Define  it  just  in  order  to  be 
+ able  to  unlist  so  I'd  have  to  do 
+ something  like  I  don't  know  con  handle 
+ reset  size  equals  this  and  then  pass  the 
+ handle  resize  function  but  now  what  if  I 
+ actually  want  to  use  something  from  this 
+ what  if  I  want  something  from  the  event 
+ like  I  want  e  for  like  the  resize  event 
+ and  to  do  something  with  it  well  now  I 
+ have  to  not  only  put  it  here  but  I  have 
+ to  define  the  type  correctly  and 
+ defining  the  right  types  for  event 
+ handlers  is  probably  my  least  favorite 
+ thing  in  typescript  other  than  enums  it 
+ is  hell  it  is  miserable  so  if  you  want 
+ to  be  able  to  remove  an  event  listener 
+ you  need  to  have  the  thing  you  bound 
+ accessible  in  order  to  call  that  or  you 
+ can  just  use  an  abort  signal  now  you 
+ don't  have  to  deal  with  this  anymore  now 
+ you  don't  have  to  be  careful  about  how 
+ you're  defining  functions  so  you  can 
+ find  them  in  order  to  unbind  them  later 
+ on  for  that  reason  alone  this  is  super 
+ worth 
+ it  back  to  the  article  quick  in  the 
+ example  above  I'm  adding  a  use  effect 
+ hook  in  react  that  introduces  a  bunch  of 
+ event  listeners  with  different  purpose 
+ and  logic  notice  how  in  the  cleanup 
+ function  I  can  remove  all  of  the  added 
+ listeners  by  calling  controller.  abort 
+ just  one  time  neat  and  that's  not  just 
+ for  event  listeners  by  the  way  works 
+ great  for  fetch  requests  as  well  to  be 
+ fair  we  handle  a  lot  of  these  things 
+ well  in  something  like  react  query  and 
+ if  you  are  making  fetch  calls  in  your 
+ react  components  you  should  probably  be 
+ using  react  query  if  you're  not  or 
+ you're  doing  fetches  in  other  places  or 
+ I  don't  know  other  Frameworks  and  a 
+ boort  controller  can  be  really  really 
+ handy  to  prevent  race  conditions  when 
+ variables  change  and  your  using  the 
+ oncomplete  in  order  to  trigger  other 
+ things  Ronin  just  had  a  really  good  drop 
+ and  I  forgot  about  this  entirely  part  of 
+ react  query  is  that  you  actually  can  use 
+ a  signal  that  they  have  built  in  they 
+ already  have  an  abort  controller  signal 
+ baked  in  for  you  so  if  you're  writing  a 
+ custom  fetch  call  here  you  can  just  pass 
+ their  signal  instead  and  they'll  handle 
+ the  abort  for  you  that's  so  cool  I 
+ didn't  know  they  did  that  that's  yeah 
+ use  this  so  here  we  have  an  upload  file 
+ oh  obligatory  upload  thing  plug  by  the 
+ way  if  you  are  doing  file  uploads  in 
+ your  projects  you  should  at  least  check 
+ out  what  we  build  upload  thing  we  put  a 
+ lot  of  time  into  this  so  you  don't  have 
+ to  learn  what  an  abort  controller  is 
+ just  to  do  a  file  upload  correctly  we 
+ handle  all  of  this  stuff  for  you  but  now 
+ you  know  how  to  do  at  least  this  part 
+ yourself  right  good  luck  making  this 
+ resume  though 
+ anyways  file  uploads  are  hard  this  helps 
+ with  a  good  part  of  it  though  which  is 
+ nice  because  now  since  we've  returned 
+ with  this  controller  when  we  call  upload 
+ file  we  can  at  any  point  abort  if  we 
+ need  to  so  if  the  user  navigates 
+ somewhere  else  or  they  hit  a  cancel 
+ button  controller.  abort  is  enough  to 
+ cancel  the  upload  now  very  very  handy 
+ actually  here  the  upload  file  function 
+ initiates  a  post  SL  upload  request  which 
+ Returns  the  associated  response  promise 
+ but  also  a  controller  reference  to  abort 
+ the  request  at  any  point  this  is  Handy 
+ if  I  need  to  cancel  the  pending  upload 
+ for  example  when  the  user  clicks  on  a 
+ cancel  button  I  will  say  I  would  have 
+ written  this  very  very  slightly 
+ different  differently  it's  not  a  big 
+ deal  I  would  have  done  that  because  I 
+ don't  want  the  consumer  of  this  to  have 
+ to  know  anything  about  what  a  controller 
+ is  when  they  could  just  call  this  abort 
+ function  small  thing  personal  preference 
+ but  I  would  not  want  you  to  bind  this 
+ signal  externally  without  really  good 
+ reason  I  wouldn't  even  want  to  expose 
+ the  potential  for  someone  to  do  that 
+ unless  they  really  really  need  to  at 
+ which  point  that  should  be  explicitly 
+ called  out  in  the  code  tiny  tiny  thing 
+ and  this  is  written  this  way  for  a 
+ reason  so  it's  simple  in  the  code 
+ example  but  that's  the  one  change  I 
+ would 
+ make  as  they  say  this  is  Handy  if  you 
+ need  to  cancel  the  pending  upload  like 
+ if  the  user  clicks  a  cancel  button  and 
+ even  rep  requests  issued  by  HTTP  in  node 
+ support  the  signal  property  which  is 
+ really  nice  a  lot  of  things  support  this 
+ we  also  have  abort  signal.  timeout  which 
+ is  a  static  method  as  a  shorthand  for 
+ creating  a  signal  that  dispatches  the 
+ abort  event  after  a  certain  timeout 
+ duration  is  passed  no  need  to  create  an 
+ abort  controller  if  all  you  want  is  to 
+ cancel  a  request  after  it  exceeds  a 
+ timeout  I  didn't  know  about  this  that's 
+ really 
+ handy  this  lets  you  add  timeouts  to 
+ anything  that  takes  a  signal  huge  my 
+ lead  researcher  Gabriel  just  dropped  the 
+ link  add  timeout  to  fetch  as  part  of 
+ axiom's  JS  Library  that's  really  cool 
+ since  they're  using  fetch  methods  for 
+ sending  this  data  to  the  axium  servers 
+ which  by  the  way  axium  is  a  logging 
+ platform  really  cool  stuff  great  guys 
+ over  there 
+ now  we  can  add  a  timeout  for  how  long 
+ this  log's  allowed  to  take  before  we 
+ just  give  up  and  that  was  implemented 
+ simply  by  adding  signal  bound  to  abort 
+ signal.  timeout  that's  super  super  handy 
+ I  had  no  idea  it  was  that  easy  to  do 
+ this  beautiful  A++  also  it's  a  small 
+ thing  but  the  fact  the  blog  doesn't 
+ shift  where  I  am  when  I  open  and  close 
+ my 
+ sidebar  so  nice  artum  you're  killing  it 
+ more  abort  signals  this  time  do  any 
+ similar  to  how  you  can  use  promise.  rce 
+ to  handle  multiple  promises  on  a  first 
+ come  first  serve  basis  you  can  utilize 
+ the  abort  signal.  any  static  method  to 
+ group  multiple  abort  signals  into  one 
+ interesting  so  we  have  these  two  signals 
+ that  could  abort  and  we  can  bind  them  by 
+ grouping  them  with  an  array  like  that  I 
+ would  have  been  surprised  if  there 
+ wasn't  something  like  this  but  it's  cool 
+ they  call  that  out  as  arum  calls  out 
+ here  they  have  two  abort  signals  and  the 
+ internal  one  allows  them  to  remove  the 
+ listener  without  interfering  with  the 
+ public  abort  controller  but  they  also 
+ have  the  public  one  so  the  public  one 
+ could  be  used  by  somebody  externally  the 
+ internal  one  could  be  used  just  inside 
+ of  this  Library  function  whatever  the 
+ scope  of  this  is  the  value  here  is  if 
+ you  want  to  keep  this  internal  one  for 
+ internal  things  but  also  allow  for 
+ certain  things  to  be  aborted  with  the 
+ public  controller  you  can  use  both  it's 
+ really  cool  and  instead  of  having  to 
+ write  like  public  controller.  signal.  ad 
+ event  listener  and  then  trigger  the 
+ internal  controller  abort  yourself  you 
+ can  just  use  aort  signal.  any  that  makes 
+ a  lot  more  sense  that's  a  lot  more 
+ syntactically  clear  I  much  prefer  this 
+ good  you  can  also  cancel  streams 
+ and  I  knew  this  because  I  just  has 
+ covered  a  very  fun  thing  this  code  is 
+ how  pre-rendering  works  with  Dynamic  IO 
+ and  PPR  in  nextjs  and  they  use  an  abort 
+ controller  in  order  to  kill  the  stream 
+ that  comes  from  react's  pre-render 
+ function  after  all  the  synchronous  code 
+ is  executed  but  before  the  asynchronous 
+ code  executes  I  have  a  whole  video  about 
+ this  called  the  magic  powering  nextjs 
+ it's  not  out  yet  but  it  probably  will  be 
+ by  the  time  you're  watching  this  video 
+ FaZe  put  the  thumbnail  here  if  it 
+ already  is  you  know  the  drill  Link  in 
+ the  description  it's  probably  out  by  now 
+ yeah  super  useful  use  case  if  you  want 
+ to  stop  a  stream  because  you  got  to  a 
+ value  you  were  looking  for  or  you're 
+ killing  it  because  you  want  to  do 
+ something  else  entirely  differently 
+ super  handy  stuff  but  as  AR  mentioned 
+ before  you  can  make  anything  abortable 
+ as  long  as  you're  in  the  right  State  my 
+ favorite  part  about  the  abort  controller 
+ API  is  that  it's  extremely  versatile  so 
+ much  so  that  you  can  teach  your  logic  to 
+ become  abordable  huge  with  such  a 
+ superpower  at  your  fingertips  not  only 
+ can  you  ship  better  experiences  yourself 
+ but  also  enhance  how  you're  using 
+ thirdparty  libraries  that  don't  support 
+ aborts  or  cancellations  natively  in  fact 
+ let's  do  just  that  apparently  drizzle 
+ doesn't  have  them  in  transactions  but  we 
+ can  implement  it  ourselves  shout  out  to 
+ drizzle  great  RM  import  transaction  roll 
+ back  error  from  drizzle  function  make 
+ cancelable  transaction  DB  return  call 
+ back  options  db.  transaction  TX  return 
+ new  promise.  resolve  reject  roll  back 
+ the  transaction  if  the  boort  event  is 
+ dispatched  so  we  add  this  event  listener 
+ for  if  the  option  signal  for  our  again 
+ options  we  could  now  pass  it  a  signal 
+ with  the  cancelable  transaction  so  we 
+ have  options.  signal  and  that's  an  ort 
+ signal  now  if  it  exists  we  add  an  event 
+ listener  where  we  reject  the  promise  and 
+ we  throw  a  transaction  roll  back  error 
+ otherwise  we  resolve  it  properly  that's 
+ really  simple  mind  you  it's  three  levels 
+ of  chain  returns  here  with  callbacks 
+ which  I  never  love  but  it's  really  easy 
+ to  write  this  code  and  understand  what 
+ it's  doing  and  as  artum  calls  out  here 
+ they  added  the  event  listener  for  the 
+ abort  event  on  the  signal  instance  now 
+ that  event  listener  will  be  called 
+ whenever  an  abort  event  is  admitted  as  I 
+ said  here  options  do  signal  the  ad  event 
+ listener  abort  and  we  then  call  the 
+ reject  does  this  need  to  be  async  here  I 
+ don't  think  it  does  because  we're  just 
+ calling  the  reject  from  this  promise  I 
+ don't  think  that  has  to  be  async  small 
+ thing  will  this  have  saved  me  work  for 
+ Ping  is  a  question  I  just  got  in  chat  um 
+ you're  not  familiar  ping.  G  is  my  video 
+ call  app  that  I  built  and  got  through  y 
+ combinator  with  that  makes  it  easier  to 
+ do  live  collaborations  for  streamers  if 
+ you've  watched  primagen  podcast  they're 
+ using  us  LTT  used  to  use  us  for  all 
+ bunch  of  stuff  still  does  here  and  there 
+ Iron  Mouse  Elgato  and  plenty  of  others 
+ use  us  for  their  live  collabs  and  I  had 
+ to  write  a  lot  of  code  like  this 
+ throughout  my  life  and  there's  one  good 
+ way  to  see  how  much  this  would  have 
+ helped  me  not  that  big  I  thought  I  had 
+ more  remove  event  listener  calls  than  I 
+ do  good  to  know  yeah  it  would  have 
+ helped  but  it  wouldn't  have  been  a  big 
+ deal  now  that  we've  implemented  this 
+ make  cancelable  Transaction  what  is 
+ consuming  it  look  like  I  think  I  know 
+ but  I  want  to  see  it  transaction  equals 
+ make  cancelable  transaction  await 
+ transaction  transaction  await  TX  update 
+ set  where  TX  update  set  where  and  then 
+ you  pass  it  a  signal  same  way  you  would 
+ anything  else  that  is  super  super  simple 
+ love  it  I  am  calling  the  make  cancelable 
+ transaction  utility  function  with  the  DB 
+ instance  to  create  a  custom  abortable 
+ transaction  from  this  point  on  I  can  use 
+ my  custom  transaction  function  as  I 
+ normally  would  and  drizzle  where  I'm 
+ performing  multiple  database  operations 
+ but  I  can  also  provide  it  with  an  abort 
+ signal  to  cancel  all  of  them  at  once 
+ huge  that  is  super  convenient  honestly 
+ drizzle  should  probably  implement  this 
+ but  the  fact  that  they  haven't  and  it's 
+ still  as  easy  to  do  that's  really  cool 
+ but  where  it's  even  cooler  is  when  you 
+ decide  to  actually  handle  these  errors 
+ because  every  abort  event  is  accompanied 
+ with  the  reason  for  it  that  yields  even 
+ more  customizability  as  you  can  react  to 
+ different  abort  reasons  differently  the 
+ abort  reason  is  an  optional  argument  to 
+ the  controller.  abort  method  you  can 
+ access  the  abort  reason  in  the  reason 
+ property  of  an  abort  signal  instance  so 
+ in  here  we  have  controllers.  signal. 
+ reason  which  we  can  call  do  we  not  get 
+ it  as  an  event  here  I  would  have  assumed 
+ let's  try  this  quick  actually  cool  so  I 
+ just  created  an  abort  controller  I  added 
+ an  event  listener  where  I  just  log 
+ Whatever  Gets  P  to  that  and  that  event 
+ type  abort  does  it  not  have  reason  in 
+ here  I  guess  it  has  Target  which  has  the 
+ abort  signal  which  has  reason  but  I 
+ would  have  guessed  that  this  event  would 
+ have  had  it  yeah  today  I  learned  at 
+ least  you  can  get  it  from  current  Target 
+ or  Target  but  still  interesting 
+ apparently  abort  signal.  any  only  got 
+ support  added  in  Firefox  in  March  this 
+ year  that's  terrifying  here's  an  example 
+ of  using  an  error  from  an  abort  if  you 
+ want  to  see  what  that  looks  like  very 
+ cool  cuz  it  still  will  throw  when  you 
+ call  the  for  so  now  you  can  catch  on 
+ these  different  types  of  Errors  super 
+ handy  I  didn't  realize  I  thought  reason 
+ had  to  be  a  string  it  can  be  any  value 
+ so  it  can  be  a  string  an  error  or  even 
+ an  object  that's  actually  really  cool 
+ conclusion  if  you're  creating  libraries 
+ in  JS  where  abort  in  your  cancelling 
+ operations  make  sense  I  highly  encourage 
+ you  to  look  no  further  than  the  abort 
+ controller  API  it's  incredible  and  if 
+ you're  building  applications  you  can 
+ still  utilize  the  abort  controller  to  a 
+ great  effect  when  you  need  to  cancel 
+ requests  remove  event  listeners  abort 
+ streams  or  teach  any  logic  to  be 
+ abortable  fantastic  blog  post  go  give 
+ artum  a  follow  it's  on  Blue  Sky 
+ catan.com  and  also  on  Twitter  kenito 
+ links  to  the  blog  post  in  the 
+ description  you  can  find  all  that  there 
+ and  until  next  time  peace  nerds
