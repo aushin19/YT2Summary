@@ -3,7 +3,7 @@
 ### **🔍 Overview**  
 YT2Summary is a **full-stack web application** that extracts **YouTube video transcripts** and generates **AI-powered summaries** using the **Gemini API**. Built with **MERN Stack + Flask**, it provides a seamless way to grasp key insights from long videos in seconds.  
 
-![Logo]()
+![Logo](https://raw.githubusercontent.com/aushin19/YT2Summary/refs/heads/main/Screenshot%202025-03-03%20152201.png)
 
 ## ⚡ **Features**  
 ✅ Extracts **YouTube transcripts** automatically using `yt-dlp`.  
